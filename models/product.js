@@ -3,7 +3,9 @@ const mongoose = require('mongoose');
 const productSchema = new mongoose.Schema({
     category: {
         type: String,
-        required: true
+        required: true,
+        enum :['Furniture','Office Supplies','Technology']
+
     },
     sub_category: {
         type: String,
@@ -17,11 +19,18 @@ const productSchema = new mongoose.Schema({
         type: Number,
         required: true
     },
-    sustainable:{
+    sustainable: {
         type: String,
-        required: true
+        required: true,
+        enum: ['Yes','No']
     },
+    description: {
+        type: String,  
+        required: false 
+    }
 }, 
+{ timestamps: true } 
+
 );
 
 module.exports = mongoose.model('Product', productSchema);
