@@ -2,14 +2,14 @@ require('dotenv').config();
 require('./config/database');
 const express = require('express');
 const morgan = require('morgan');
-const verifyToken = require('./middleware/verify-token');
 const cors = require('cors');
 
 //controllers:
 const testJWTRouter = require('./controllers/test-jwt');
 const usersRouter = require('./controllers/users');
 const profilesRouter = require('./controllers/profiles');
-const productsRouter = require('./controllers/product.js');
+const productsRouter = require('./controllers/product');
+const verifyToken = require('./middleware/verify-token');
 
 
 const app = express();
